@@ -6,6 +6,7 @@ import { useCart } from '../context/CartContext';
 export default function CSRPage() {
   const [products, setProducts] = useState([]);
   const { addToWishlist } = useCart();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch('https://dummyjson.com/products/category/womens-dresses?limit=4')
@@ -21,9 +22,9 @@ export default function CSRPage() {
           <div key={item.id} className="border p-4 rounded bg-white">
             <img src={item.thumbnail} alt={item.title} className="h-40 w-full object-cover mb-4" />
             <h2 className="text-sm font-semibold truncate">{item.title}</h2>
-            <button 
-              onClick={() => addToWishlist(item)}
-              className="mt-4 w-full bg-[#800000] text-white py-2 text-xs rounded hover:bg-[#600000]"
+            <button
+              onClick={() => addToCart(item)} // Panggil fungsi ini!
+              className="bg-[#800000] text-white p-2 rounded"
             >
               Add to Cart
             </button>

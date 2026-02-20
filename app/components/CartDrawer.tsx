@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 
 export default function CartDrawer() {
-  const { cart, removeFromCart, totalPrice } = useCart();
+  const { cart, totalItems, removeFromCart, totalPrice } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
   // Menghitung total item (quantity) agar angka di icon akurat
@@ -12,10 +12,10 @@ export default function CartDrawer() {
   return (
     <>
       {/* Tombol Keranjang di Navbar */}
-      <button onClick={() => setIsOpen(true)} className="relative p-2 flex items-center">
-        <span className="text-2xl">🛒</span>
+      <button onClick={() => setIsOpen(true)} className="relative p-2">
+        🛒
         {totalItems > 0 && (
-          <span className="absolute -top-1 -right-1 bg-white text-[#800000] rounded-full text-[10px] w-5 h-5 flex items-center justify-center font-bold border-2 border-[#800000] shadow-sm animate-bounce">
+          <span className="absolute -top-1 -right-1 bg-white text-[#800000] rounded-full text-[10px] w-5 h-5 flex items-center justify-center font-bold border-2 border-[#800000]">
             {totalItems}
           </span>
         )}
