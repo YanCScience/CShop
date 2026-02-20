@@ -9,8 +9,8 @@ export default function HomePage() {
           Elegant Modesty.
         </h1>
         <p className="text-lg text-gray-600 mb-10 leading-relaxed font-light">
-          Selamat datang di <span className="font-semibold text-[#800000]">D4RL Collection</span>. 
-          Eksplorasi teknik rendering modern Next.js melalui katalog busana muslim kami yang dikembangkan secara sistematis.
+          Selamat datang di <span className="font-semibold text-[#800000]">CShop</span>. 
+          Eksplorasi teknik rendering modern Next.js melalui katalog dress kami yang dikembangkan secara sistematis.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

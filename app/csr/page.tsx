@@ -15,7 +15,7 @@ export default function CSRPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-[#800000] mb-8">Eksplorasi (CSR)</h1>
+      <h1 className="text-3xl font-bold text-[#800000] mb-8">Explore</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {products.map((item: any) => (
           <div key={item.id} className="border p-4 rounded bg-white">
@@ -25,7 +25,7 @@ export default function CSRPage() {
               onClick={() => addToWishlist(item)}
               className="mt-4 w-full bg-[#800000] text-white py-2 text-xs rounded hover:bg-[#600000]"
             >
-              Tambah ke Wishlist
+              Add to Cart
             </button>
           </div>
         ))}

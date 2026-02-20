@@ -6,7 +6,7 @@ export default async function SSGPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-[#800000] mb-8">Katalog Abaya (SSG)</h1>
+      <h1 className="text-3xl font-bold text-[#800000] mb-8">Dress Catalogue</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {products.map((item: any) => (
           <div key={item.id} className="border p-4 rounded shadow-sm bg-white">

@@ -8,7 +8,7 @@ export default async function SSRPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-[#800000] mb-8">Koleksi Terbaru (SSR)</h1>
+      <h1 className="text-3xl font-bold text-[#800000] mb-8">New Collection</h1>
       <div className="space-y-4">
         {products.map((item: any) => (
           <div key={item.id} className="flex gap-4 p-4 bg-white border-l-4 border-[#800000] shadow-sm">
