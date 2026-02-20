@@ -56,4 +56,14 @@ export default function CartDrawer() {
       )}
     </>
   );
+  return (
+  <div className="relative">
+    🛒 
+    {cart.length > 0 && (
+      <span className="absolute -top-2 -right-2 bg-white text-[#800000] rounded-full text-[10px] w-4 h-4 flex items-center justify-center font-bold border border-[#800000]">
+        {cart.length}
+      </span>
+    )}
+  </div>
+);
 }
