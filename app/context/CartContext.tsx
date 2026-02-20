@@ -6,20 +6,35 @@ interface Product {
   title: string;
   price: number;
   thumbnail: string;
+  quantity?: number; // Menambah properti quantity
 }
 
 const CartContext = createContext<any>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [wishlist, setWishlist] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Product[]>([]);
 
-  const addToWishlist = (product: Product) => {
-    setWishlist((prev) => [...prev, product]);
-    alert(`${product.title} ditambahkan ke wishlist!`);
+  const addToCart = (product: Product) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
+        );
+      }
+      return [...prev, { ...product, quantity: 1 }];
+    });
+    alert(`${product.title} berhasil masuk keranjang!`);
   };
 
+  const removeFromCart = (id: number) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0);
+
   return (
-    <CartContext.Provider value={{ wishlist, addToWishlist }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, totalPrice }}>
       {children}
     </CartContext.Provider>
   );

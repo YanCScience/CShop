@@ -1,6 +1,7 @@
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import Link from "next/link";
+import CartDrawer from './components/CartDrawer';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,10 +10,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartProvider>
           <nav className="p-5 bg-[#800000] text-white flex justify-between items-center sticky top-0 z-50">
             <Link href="/" className="font-bold text-xl italic">CShop</Link>
-            <div className="flex gap-6 text-sm uppercase tracking-widest">
-              <Link href="/ssg">Catalogue</Link>
-              <Link href="/ssr">Newest</Link>
-              <Link href="/csr">Search</Link>
+            <div className="flex gap-4 items-center">
+              <div className="hidden md:flex gap-6 text-sm uppercase tracking-widest">
+                <Link href="/ssg">Catalogue</Link>
+                <Link href="/ssr">Newest</Link>
+                <Link href="/csr">Search</Link>
+              </div>
+              <CartDrawer /> {/* Letakkan di sini agar sejajar dengan menu */}
             </div>
           </nav>
           <main className="min-h-screen">{children}</main>
