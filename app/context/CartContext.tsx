@@ -18,12 +18,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
-        // Harus buat array baru agar reaktif!
         return prev.map((item) =>
           item.id === product.id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
         );
       }
-      // Tambah produk baru dengan spread operator
       return [...prev, { ...product, quantity: 1 }];
     });
   };
@@ -32,7 +30,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // Hitung total harga dan total item secara otomatis
   const totalPrice = cart.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0);
   const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 

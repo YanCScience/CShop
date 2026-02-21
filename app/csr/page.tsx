@@ -24,8 +24,7 @@ export default function CSRPage() {
             <h2 className="text-sm font-semibold truncate">{item.title}</h2>
             <button
               onClick={() => addToCart(item)} // Panggil fungsi ini!
-              className="bg-[#800000] text-white p-2 rounded"
-            >
+              className="bg-[#800000] text-white p-2 rounded">
               Add to Cart
             </button>
           </div>

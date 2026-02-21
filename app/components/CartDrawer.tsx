@@ -3,7 +3,6 @@ import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 
 export default function CartDrawer() {
-  // Ambil totalItems langsung dari context, jangan dideklarasikan ulang!
   const { cart, removeFromCart, totalPrice, totalItems, addToCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +13,7 @@ export default function CartDrawer() {
         <span className="text-2xl">🛒</span>
         {/* Sekarang pakai totalItems dari context */}
         {totalItems > 0 && (
-          <span className="absolute -top-1 -right-1 bg-white text-[#800000] rounded-full text-[10px] w-5 h-5 flex items-center justify-center font-bold border-2 border-[#800000] shadow-sm animate-bounce">
+          <span className="absolute -top-1 -right-1 bg-white text-[#800000] rounded-full text-[10px] w-5 h-5 flex items-center justify-center font-bold border-2 border-[#800000]">
             {totalItems}
           </span>
         )}
@@ -27,7 +26,7 @@ export default function CartDrawer() {
           
           <div className="relative w-full max-w-sm bg-white h-full shadow-2xl p-6 flex flex-col transform transition-transform duration-300">
             <div className="flex justify-between items-center border-b pb-4 mb-4">
-              <h2 className="text-xl font-bold text-[#800000]">Keranjang CShop</h2>
+              <h2 className="text-xl font-bold text-[#800000]">CShop Cart</h2>
               <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-[#800000] font-bold text-2xl">
                 ×
               </button>
@@ -69,7 +68,7 @@ export default function CartDrawer() {
                 className="w-full bg-[#800000] text-white py-4 rounded-xl font-bold tracking-[0.2em] hover:bg-[#600000] shadow-lg"
                 onClick={() => alert('Fitur Checkout akan segera hadir!')}
               >
-                CHECKOUT SEKARANG
+                CHECKOUT NOW
               </button>
             </div>
           </div>
