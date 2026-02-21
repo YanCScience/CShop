@@ -60,7 +60,7 @@ export default function CSRPage() {
         
         <input 
           type="text"
-          placeholder="Cari busana muslim..."
+          placeholder="Cari dress..."
           className="mt-6 w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#800000] focus:border-transparent shadow-sm transition-all"
           onChange={(e) => setSearch(e.target.value)}
         />
