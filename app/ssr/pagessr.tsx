@@ -1,14 +1,18 @@
 // app/ssr/page.tsx
 export default async function SSRPage() {
-  const res = await fetch('https://dummyjson.com/products/category/tops?limit=5', { 
-    cache: 'no-store' 
+  const res = await fetch('https://dummyjson.com/products/category/tops?limit=5', {
+    cache: 'no-store'
   });
   const data = await res.json();
   const products = data.products;
+  const serverTime = new Date().toLocaleTimeString();
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#800000] mb-8">New Collection</h1>
+      <p className="text-xs bg-red-100 text-[#800000] p-1 rounded inline-block">
+        Rendered at: {serverTime} (Server Side)
+      </p>
       <div className="space-y-4">
         {products.map((item: any) => (
           <div key={item.id} className="flex gap-4 p-4 bg-white border-l-4 border-[#800000] shadow-sm">

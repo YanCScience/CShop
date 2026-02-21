@@ -3,10 +3,14 @@ export default async function SSGPage() {
   const res = await fetch('https://dummyjson.com/products/category/womens-dresses');
   const data = await res.json();
   const products = data.products;
+  const buildTime = new Date().toLocaleTimeString();
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#800000] mb-8">Dress Catalogue</h1>
+      <p className="text-xs bg-blue-100 text-blue-800 p-1 rounded inline-block">
+        Generated at build: {buildTime} (Static)
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {products.map((item: any) => (
           <div key={item.id} className="border p-4 rounded shadow-sm bg-white">
